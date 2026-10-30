@@ -1,0 +1,801 @@
+/* ============================================================================
+   Dashboard.css — Two-Panel Enterprise Dashboard
+   Clean, professional layout with inline SVG illustrations,
+   hero banner, and an attractive-but-restrained design.
+   ============================================================================ */
+
+/* ── Page Wrapper ── */
+.dashboard-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* ============================================================================
+   EMPTY STATE (no project uploaded)
+   Two columns: illustration + text  |  feature highlights
+   ============================================================================ */
+.dash-empty-state {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+@media (max-width: 860px) {
+  .dash-empty-state {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Left panel: illustration + welcome text */
+.empty-left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.empty-illustration-wrap {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.empty-hero-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.empty-text-content {
+  text-align: left;
+}
+
+.empty-text-content h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.empty-text-content p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 1.25rem;
+}
+
+.empty-cta-row {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* Right panel: feature highlights */
+.empty-right-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+}
+
+.feature-highlight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.fh-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fh-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.fh-text strong {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.fh-text span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ============================================================================
+   HERO BANNER (Active Project)
+   Full-width card with text left / SVG illustration right
+   ============================================================================ */
+.dash-hero-banner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .dash-hero-banner {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+}
+
+.hero-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+}
+
+.hero-banner-text h1 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.hero-banner-text p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hero-banner-actions {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-banner-visual {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-banner-visual {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.hero-illustration-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================================
+   DATE BADGE — shared by hero banner & empty state
+   ============================================================================ */
+.date-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.1rem;
+}
+
+/* ============================================================================
+   TWO-PANEL LAYOUT
+   Left: flexible column   |   Right: fixed ~380 px sidebar
+   ============================================================================ */
+.dash-two-panel {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .dash-two-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-panel-left,
+.dash-panel-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ============================================================================
+   UNIVERSAL DASH CARD
+   Base container used by every card inside the two-panel area
+   ============================================================================ */
+.dash-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+}
+
+.dash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dash-card-header h3 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ── Utility: flex row with gap (reusable) ── */
+.flex-center-gap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================================================
+   STATUS BADGES
+   ============================================================================ */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.status-badge.success {
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border: 1px solid var(--border-green);
+}
+
+.status-badge.info {
+  background: var(--accent-cyan-light);
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-cyan);
+}
+
+/* ============================================================================
+   ICON WRAPPERS (colors)
+   ============================================================================ */
+.icon-purple {
+  background: var(--accent-purple-light);
+  color: var(--accent-purple);
+  border: 1px solid var(--border-purple);
+}
+
+.icon-cyan {
+  background: var(--accent-cyan-light);
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-cyan);
+}
+
+.icon-green {
+  background: var(--accent-green-light);
+  color: var(--accent-green);
+  border: 1px solid var(--border-green);
+}
+
+.icon-amber {
+  background: var(--accent-amber-light);
+  color: var(--accent-amber);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.icon-danger {
+  background: var(--accent-red-light);
+  color: var(--danger);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+/* ============================================================================
+   TEXT COLOR HELPERS
+   ============================================================================ */
+.text-purple { color: var(--accent-purple); }
+.text-cyan   { color: var(--accent-cyan); }
+.text-green  { color: var(--accent-green); }
+.text-amber  { color: var(--accent-amber); }
+.text-muted  { color: var(--text-muted); }
+
+/* ============================================================================
+   PROJECT CARD
+   ============================================================================ */
+.project-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.tech-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-chip {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-secondary);
+}
+
+.project-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+}
+
+.project-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.project-action-bar {
+  display: flex;
+  gap: 0.65rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .project-action-bar {
+    flex-direction: column;
+  }
+}
+
+/* ============================================================================
+   AI MENTOR CARD
+   ============================================================================ */
+.mentor-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mentor-insight-box {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-purple);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.mentor-insight-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.mentor-action-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* ============================================================================
+   LEARNING ROADMAP PREVIEW CARD
+   ============================================================================ */
+.roadmap-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.roadmap-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.roadmap-mini-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 7px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  transition: border-color var(--transition-fast);
+}
+
+.roadmap-mini-row:hover {
+  border-color: var(--border-strong);
+}
+
+.roadmap-mini-row.completed {
+  opacity: 0.75;
+}
+
+.roadmap-mini-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.in-progress-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+}
+
+.roadmap-mini-name {
+  flex: 1;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.roadmap-mini-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.empty-roadmap-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 0.5rem 0;
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   LINK-STYLE BUTTON  (.btn-link)
+   ============================================================================ */
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--accent-purple);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  font-family: inherit;
+}
+
+.btn-link:hover {
+  background: var(--accent-purple-light);
+  color: var(--accent-purple-hover);
+}
+
+/* ============================================================================
+   ASSESSMENT READINESS CARD
+   Donut ring (left) + progress bars (right) side by side
+   ============================================================================ */
+.readiness-card-body {
+  padding: 1.25rem;
+}
+
+.readiness-hero-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .readiness-hero-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+}
+
+/* Ring wrapper */
+.readiness-ring-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.readiness-ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.readiness-ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-score {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.ring-subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* Progress bars stack */
+.readiness-bars-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+/* ============================================================================
+   MINI PROGRESS BAR (used inside readiness card)
+   ============================================================================ */
+.mini-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mini-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-progress-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.mini-progress-value {
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.mini-progress-value.purple { color: var(--accent-purple); }
+.mini-progress-value.cyan   { color: var(--accent-cyan); }
+.mini-progress-value.green  { color: var(--accent-green); }
+.mini-progress-value.amber  { color: var(--accent-amber); }
+
+.mini-progress-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.mini-progress-fill.purple { background: var(--accent-purple); }
+.mini-progress-fill.cyan   { background: var(--accent-cyan); }
+.mini-progress-fill.green  { background: var(--accent-green); }
+.mini-progress-fill.amber  { background: var(--accent-amber); }
+
+/* ============================================================================
+   QUICK ACCESS GRID
+   3 columns × 2 rows of clickable tiles
+   ============================================================================ */
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  padding: 1rem 1.15rem 1.15rem;
+}
+
+@media (max-width: 480px) {
+  .quick-access-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.qa-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  transition: border-color var(--transition-fast),
+              background var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.qa-tile:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-card-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.qa-tile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qa-tile-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ============================================================================
+   AI INSIGHTS CARD
+   ============================================================================ */
+.insights-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.insight-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 7px;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.insight-row svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-positive {
+  background: var(--accent-green-light);
+  border: 1px solid var(--border-green);
+}
+
+.insight-improve {
+  background: var(--accent-amber-light);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+/* Empty insights state */
+.insights-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: center;
+  padding: 0.75rem 0 0.5rem;
+}
+
+.insights-empty-illustration {
+  width: 120px;
+}
+
+.insights-mini-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.insights-empty p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 260px;
+  margin: 0;
+}
+
+/* ============================================================================
+   BUTTONS (btn-primary, btn-secondary, btn-large)
+   These may already exist in design-system.css but we ensure they
+   work within the dashboard context.
+   ============================================================================ */
+.dashboard-page-container .btn-primary,
+.dashboard-page-container .btn-secondary {
+  font-family: inherit;
+}
+
+.btn-large {
+  padding: 0.7rem 1.5rem !important;
+  font-size: 0.92rem !important;
+}

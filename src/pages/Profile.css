@@ -1,0 +1,200 @@
+/* Profile.css - Enterprise Developer Profile */
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+/* Hero Profile Card */
+.profile-hero-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-xs);
+}
+
+@media (max-width: 768px) {
+  .profile-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+}
+
+.profile-main-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.profile-avatar-large {
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  background: var(--accent-purple-light);
+  border: 1px solid var(--border-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+.profile-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.profile-credentials h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.email-meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.level-label-glow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+}
+
+.profile-metrics-row {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 600px) {
+  .profile-metrics-row {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.metric-box .val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.metric-box p {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Columns */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-column-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.calendar-card h3,
+.profile-weak-areas-card h3,
+.performance-summary-card h3,
+.scanned-projects-card h3 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.65rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.calendar-explanation-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.calendar-heatmap-grid {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.heatmap-day-cell {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+}
+
+.heatmap-day-cell.active-1 { background: rgba(79, 70, 229, 0.25); border-color: rgba(79, 70, 229, 0.4); }
+.heatmap-day-cell.active-2 { background: rgba(79, 70, 229, 0.55); border-color: rgba(79, 70, 229, 0.7); }
+.heatmap-day-cell.active-3 { background: var(--accent-purple); border-color: var(--accent-purple); }
+
+.project-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.project-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.project-summary-item strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.project-summary-item span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
